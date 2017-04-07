@@ -22,9 +22,11 @@ import PlaygroundSupport
 let canvas = Canvas(width: 500, height: 500)
 
 // Generate a grid
-canvas.drawShapesWithFill = false
+canvas.drawShapesWithFill = true
 canvas.defaultBorderWidth = 1
 
+// No borders on shapes
+canvas.drawShapesWithBorders = false
 
 // This loop makes a 10 rows of columns
 for x in stride(from: 25, through: 475, by: 50){
@@ -35,8 +37,18 @@ for x in stride(from: 25, through: 475, by: 50){
         // Generate a random number to help with shape selection
         var shapeSelector = random(from: 0, toButNotIncluding: 2)
         
+        // Generate a random number to decide whether to create appearance of "sinking" or "rising" by changing brightness of fill
+        var depthSelector = random(from: 0, toButNotIncluding: 2)
+        
         // Loop five times to create shapes with decreasing size
         for size in stride(from: 50, through: 10, by: -10) {
+            
+            // Set fill to create appearance of "sinking" or "rising"
+            if depthSelector == 0 {
+                canvas.fillColor = Color(hue: 240, saturation: 40, brightness: 80 - size, alpha: 100)
+            } else {
+                canvas.fillColor = Color(hue: 240, saturation: 40, brightness: 30 + size, alpha: 100)
+            }
             
             // Depending on random number, draw squares or circles
             if shapeSelector == 0 {
