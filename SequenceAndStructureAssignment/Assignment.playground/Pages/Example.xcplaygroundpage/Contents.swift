@@ -35,9 +35,19 @@ for x in stride(from: 25, through: 475, by: 50){
     // This loop makes a single column, bottom to top
     for y in stride(from: 25, through: 475, by: 50) {
         
-        // Draw the shapes
-        canvas.drawEllipse(centreX: x, centreY: y, width: 2, height: 2)
+        // Draw the shapes with color
+        //canvas.lineColor = Color(hue: 26, saturation: 69, brightness: 37, alpha: 100)
+        canvas.borderColor = Color(hue: 240, saturation: 80, brightness: 90, alpha: 100)
+        canvas.drawEllipse(centreX: x, centreY: y, width: 10, height: 50)
+        canvas.drawEllipse(centreX: x, centreY: y, width: 50, height: 10)
+         canvas.borderColor = Color(hue: 120, saturation: 80, brightness: 90, alpha: 100)
         canvas.drawRectangle(centreX: x, centreY: y, width: 50, height: 50)
+         canvas.borderColor = Color(hue: 80, saturation: 80, brightness: 90, alpha: 100)
+       //   I want the green rectangles to only repeat in the top right corner
+        
+        if x >= 9 {
+            
+        }
     }
 }
 
