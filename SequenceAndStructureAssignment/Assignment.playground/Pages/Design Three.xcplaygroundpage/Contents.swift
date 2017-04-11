@@ -21,24 +21,44 @@ import PlaygroundSupport
 // Create canvas
 let canvas = Canvas(width: 500, height: 500)
 
+
 // Generate a grid
+
 canvas.drawShapesWithFill = true
 canvas.defaultBorderWidth = 1
+// Makes centre point in canvas
 
 // This loop makes a 10 rows of columns
 for x in stride(from: 25, through: 475, by: 50){
-    
+    for y in stride(from: 0, to: 500, by: 500){
+        // Draw the shapes
+        canvas.drawEllipse(centreX: x, centreY: y, width: 2, height: 2)
+        canvas.drawRectangle(centreX: x, centreY: y, width: 50, height: 50)
+        // Draw the square colours
+    // this will make an ecclipse in the corners as planned
+    canvas.drawEllipse(centreX: y, centreY: y, width: 250, height: 250)
     // This loop makes a single column, bottom to top
     for y in stride(from: 25, through: 475, by: 50) {
         // Get the colour for each box
         let hue = random(from: 0, toButNotIncluding: 360)
+         canvas.fillColor = Color(hue: hue, saturation: 80, brightness: 100, alpha: 100)
         
-        // Draw the square
-        canvas.fillColor = Color(hue: hue, saturation: 80, brightness: 90, alpha: 100)
+        if hue > 120 {
+           
+        canvas.fillcolor
+            
+        } else {
+            
+        }
+
         // Draw the shapes
         canvas.drawEllipse(centreX: x, centreY: y, width: 2, height: 2)
         canvas.drawRectangle(centreX: x, centreY: y, width: 50, height: 50)
-        
+        // Draw the square colours
+       
+       
+        }
+
        
 
     }
