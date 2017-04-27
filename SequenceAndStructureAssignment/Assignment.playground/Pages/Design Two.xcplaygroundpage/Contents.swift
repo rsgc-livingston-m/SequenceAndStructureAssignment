@@ -31,6 +31,7 @@ for x in stride(from: 25, through: 475, by: 50){
     
     // This loop makes a single column, bottom to top
     for y in stride(from: 25, through: 475, by: 50) {
+        // This loop makes the colors random
         let hue = random(from: 0, toButNotIncluding: 360)
        
         // Draw the circles 10 by 10
@@ -38,7 +39,7 @@ for x in stride(from: 25, through: 475, by: 50){
         canvas.fillColor = Color(hue: hue, saturation: 80, brightness: 100, alpha: 100)
         
         
-    // If statement regarding whether to draw rectangles or not.
+    // If statement regarding whether to draw rectangles or not based on the hue of a circle.
        
         if hue > 180 {
         canvas.drawRectangle(bottomLeftX: y, bottomLeftY: x, width: 10, height: 50)
